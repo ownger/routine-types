@@ -42,13 +42,15 @@ export default {
             template: './src/index.html',
             filename: 'index.html',
             chunks: ['main'],
-            minify: !isDev, // true в production, false в dev
+            minify: !isDev,
         }),
 
         new rspack.CopyRspackPlugin({
             patterns: [
                 { from: 'src/manifest.json', to: 'manifest.json' },
                 { from: 'src/sw.js', to: 'sw.js' },
+                { from: 'src/robots.txt', to: 'robots.txt' },
+                { from: 'src/sitemap.xml', to: 'sitemap.xml' },
             ],
         }),
     ],
