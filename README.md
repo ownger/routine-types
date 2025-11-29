@@ -26,7 +26,7 @@ This project provides a comprehensive set of TypeScript utility types that exten
 ## Quick Start
 
 ```bash
-git clone https://github.com/ownger/ts-snippets.git
+git clone https://github.com/ownger/routine-types.git
 cd ts-snippets
 npm install
 npm run dev
@@ -40,4 +40,4 @@ MIT License
 
 ownger
 
-https://github.com/ownger/ts-snippets
+https://github.com/ownger/routine-types.git
