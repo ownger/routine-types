@@ -1,0 +1,39 @@
+{
+  "name": "ts-snippets",
+  "version": "1.0.0",
+  "description": "TypeScript utility snippets collection",
+  "type": "module",
+  "scripts": {
+    "dev": "rspack serve --config rspack.config.js",
+    "build": "rspack build --config rspack.config.js",
+    "preview": "serve dist -l 8000"
+  },
+  "keywords": [
+    "typescript",
+    "snippets",
+    "utility-types"
+  ],
+  "author": "ownger",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ownger/routine-types.git"
+  },
+  "homepage": "https://ownger.github.io/routine-types/",
+  "bugs": {
+    "url": "https://github.com/ownger/routine-types/issues"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@rspack/cli": "1.6.5",
+    "@rspack/core": "1.6.5",
+    "copy-webpack-plugin": "13.0.1",
+    "css-loader": "7.1.2",
+    "html-webpack-plugin": "5.6.5",
+    "mini-css-extract-plugin": "2.9.4",
+    "serve": "14.2.5",
+    "style-loader": "4.0.0"
+  },
+  "volta": {
+    "node": "22.21.1"
+  }
+}

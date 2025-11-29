@@ -1,0 +1,26 @@
+{
+  "name": "TypeScript Utility Snippets",
+  "short_name": "TS Snippets",
+  "description": "Collection of practical TypeScript utility types and code snippets for everyday development",
+  "start_url": "/ts-snippets/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3178c6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>📘</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>📘</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["development", "education", "productivity"],
+  "lang": "en-US"
+}

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TypeScript Utility Snippets | Essential TS Code Examples</title>
+    <meta name="description" content="Collection of practical TypeScript utility types and code snippets for everyday development. Copy-paste ready examples with syntax highlighting.">
+    <meta name="keywords" content="typescript, utility types, code snippets, typescript examples, typescript helpers, ts utilities">
+    <meta name="author" content="TypeScript Snippets">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="TypeScript Utility Snippets">
+    <meta property="og:description" content="Collection of practical TypeScript utility types and code snippets for everyday development.">
+    <meta property="og:url" content="https://ownger.github.io/ts-snippets/">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="TypeScript Utility Snippets">
+    <meta name="twitter:description" content="Collection of practical TypeScript utility types and code snippets.">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>📘</text></svg>">
+
+    <style>
+        :root{--color-bg:#ffffff;--color-bg-secondary:#f8fafc;--color-text:#0f172a;--color-text-secondary:#64748b;--color-border:#e2e8f0;--color-primary:#3178c6;--color-primary-hover:#2563eb;--font-sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell',sans-serif;--font-mono:'SF Mono','Monaco','Inconsolata','Fira Code','Consolas',monospace;--space-sm:0.5rem;--space-md:1rem;--space-lg:1.5rem;--space-xl:2rem;--border-radius:0.5rem;--transition-speed:0.2s;--transition-timing:ease-in-out}[data-theme="dark"]{--color-bg:#0f172a;--color-bg-secondary:#1e293b;--color-text:#f1f5f9;--color-text-secondary:#94a3b8;--color-border:#334155}*,*::before,*::after{box-sizing:border-box}*{margin:0;padding:0}html{-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4}body{font-family:var(--font-sans);font-size:1rem;line-height:1.6;color:var(--color-text);background-color:var(--color-bg);transition:background-color var(--transition-speed) var(--transition-timing);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.site-header{background-color:var(--color-bg);border-bottom:1px solid var(--color-border);padding:var(--space-lg) 0;position:sticky;top:0;z-index:10;transition:background-color var(--transition-speed) var(--transition-timing)}.container{max-width:1200px;margin:0 auto;padding:0 var(--space-lg)}.site-header .container{display:flex;justify-content:space-between;align-items:center}.site-title{font-size:1.5rem;font-weight:700;color:var(--color-text);display:flex;align-items:center;gap:var(--space-sm)}.logo{display:inline-flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;background:linear-gradient(135deg,var(--color-primary),var(--color-primary-hover));color:white;border-radius:var(--border-radius);font-weight:700;font-size:1.125rem}.theme-toggle{background:none;border:1px solid var(--color-border);border-radius:var(--border-radius);width:2.5rem;height:2.5rem;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--color-text);transition:all var(--transition-speed) var(--transition-timing)}.theme-toggle:hover{background-color:var(--color-bg-secondary);border-color:var(--color-primary)}[data-theme="light"] .moon-icon{display:none}[data-theme="dark"] .sun-icon{display:none}.main-content{padding:var(--space-xl) 0}.intro-text{font-size:1.125rem;color:var(--color-text-secondary);text-align:center;max-width:48rem;margin:0 auto var(--space-xl)}.visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.snippets-section h2{font-size:2rem;font-weight:700;color:var(--color-text);margin-bottom:var(--space-xl);text-align:center}.snippet-card{background-color:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--border-radius);padding:var(--space-xl);margin-bottom:var(--space-xl);transition:all var(--transition-speed) var(--transition-timing)}.snippet-title{font-size:1.5rem;font-weight:600;color:var(--color-text);margin-bottom:var(--space-sm)}.snippet-description{font-size:1rem;color:var(--color-text-secondary);margin-bottom:var(--space-lg)}
+    </style>
+
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+    <meta name="theme-color" content="#3178c6" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1e293b" media="(prefers-color-scheme: dark)">
+
+</head>
+<body itemscope itemtype="https://schema.org/WebPage">
+<header class="site-header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="container">
+        <h1 class="site-title" itemprop="name">
+            <span class="logo">TS</span>
+            TypeScript Snippets
+        </h1>
+        <nav class="site-nav" aria-label="Main navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
+            <button type="button"
+                    class="theme-toggle"
+                    aria-label="Toggle dark mode"
+                    title="Toggle theme">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                </svg>
+            </button>
+        </nav>
+    </div>
+</header>
+
+<main id="main-content" class="main-content" itemprop="mainContentOfPage">
+    <div class="container">
+        <section class="intro" aria-labelledby="intro-heading">
+            <h2 id="intro-heading" class="visually-hidden">Introduction</h2>
+            <p class="intro-text" itemprop="description">
+                A curated collection of TypeScript utility types and helpers for everyday development.
+                All snippets are copy-paste ready with full type safety.
+            </p>
+        </section>
+
+        <section class="snippets-section" aria-labelledby="snippets-heading">
+            <h2 id="snippets-heading">Code Snippets</h2>
+
+            <article class="snippet-card" id="deep-partial" itemscope itemtype="https://schema.org/HowTo">
+                <link itemprop="url" href="https://ownger.github.io/ts-snippets/#deep-partial">
+                <header class="snippet-header">
+                    <h3 class="snippet-title" itemprop="name">DeepPartial</h3>
+                    <p class="snippet-description" itemprop="description">
+                        Makes all properties of an object and nested objects optional recursively.
+                    </p>
+                </header>
+
+                <div class="code-block-wrapper" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+                    <meta itemprop="name" content="Implementation">
+                    <div itemprop="itemListElement" itemscope itemtype="https://schema.org/HowToDirection">
+                        <pre><code class="language-typescript">type DeepPartial&lt;T&gt; = {
+  [P in keyof T]?: T[P] extends object
+    ? DeepPartial&lt;T[P]&gt;
+    : T[P];
+};
+
+// Usage example
+interface User {
+  name: string;
+  profile: {
+    age: number;
+    address: {
+      city: string;
+      country: string;
+    };
+  };
+}
+
+type PartialUser = DeepPartial&lt;User&gt;;
+// All properties including nested ones are optional</code></pre>
+                    </div>
+                    <button type="button"
+                            class="copy-button"
+                            aria-label="Copy code to clipboard"
+                            data-code-block="deep-partial">
+                        <svg class="copy-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true">
+                            <path d="M5.5 4.5H3.5C2.94772 4.5 2.5 4.94772 2.5 5.5V12.5C2.5 13.0523 2.94772 13.5 3.5 13.5H10.5C11.0523 13.5 11.5 13.0523 11.5 12.5V10.5" stroke-width="1.5" stroke-linecap="round"/>
+                            <rect x="5.5" y="2.5" width="8" height="8" rx="1" stroke-width="1.5"/>
+                        </svg>
+                        <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true">
+                            <path d="M3 8L6.5 11.5L13 5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="copy-text">Copy</span>
+                    </button>
+                </div>
+            </article>
+            <article class="snippet-card" id="deep-readonly" itemscope itemtype="https://schema.org/HowTo">
+                <link itemprop="url" href="https://ownger.github.io/ts-snippets/#deep-readonly">
+                <header class="snippet-header">
+                    <h3 class="snippet-title" itemprop="name">DeepReadonly</h3>
+                    <p class="snippet-description" itemprop="description">
+                        Makes all properties readonly recursively, preventing any modifications.
+                    </p>
+                </header>
+
+                <div class="code-block-wrapper" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+                    <meta itemprop="name" content="Implementation">
+                    <div itemprop="itemListElement" itemscope itemtype="https://schema.org/HowToDirection">
+                        <pre><code class="language-typescript">type DeepReadonly&lt;T&gt; = {
+  readonly [P in keyof T]: T[P] extends object
+    ? DeepReadonly&lt;T[P]&gt;
+    : T[P];
+};
+
+// Usage example
+interface Config {
+  api: {
+    url: string;
+    timeout: number;
+  };
+}
+
+const config: DeepReadonly&lt;Config&gt; = {
+  api: { url: 'https://api.example.com', timeout: 5000 }
+};
+
+// config.api.url = 'new'; // Error: Cannot assign to 'url'</code></pre>
+                    </div>
+                    <button type="button"
+                            class="copy-button"
+                            aria-label="Copy code to clipboard"
+                            data-code-block="deep-readonly">
+                        <svg class="copy-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true">
+                            <path d="M5.5 4.5H3.5C2.94772 4.5 2.5 4.94772 2.5 5.5V12.5C2.5 13.0523 2.94772 13.5 3.5 13.5H10.5C11.0523 13.5 11.5 13.0523 11.5 12.5V10.5" stroke-width="1.5" stroke-linecap="round"/>
+                            <rect x="5.5" y="2.5" width="8" height="8" rx="1" stroke-width="1.5"/>
+                        </svg>
+                        <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true">
+                            <path d="M3 8L6.5 11.5L13 5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="copy-text">Copy</span>
+                    </button>
+                </div>
+            </article>
+            <article class="snippet-card" id="maybe" itemscope itemtype="https://schema.org/HowTo">
+                <link itemprop="url" href="https://ownger.github.io/ts-snippets/#maybe">
+                <header class="snippet-header">
+                    <h3 class="snippet-title" itemprop="name">Maybe</h3>
+                    <p class="snippet-description" itemprop="description">
+                        Combines null and undefined with a type, representing a value that may or may not exist.
+                    </p>
+                </header>
+
+                <div class="code-block-wrapper" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+                    <meta itemprop="name" content="Implementation">
+                    <div itemprop="itemListElement" itemscope itemtype="https://schema.org/HowToDirection">
+                        <pre><code class="language-typescript">type Maybe&lt;T&gt; = T | null | undefined;
+
+// Usage example
+type User = {
+  id: number;
+  name: string;
+};
+
+type MaybeUser = Maybe&lt;User&gt;;
+// type MaybeUser = User | null | undefined
+
+function findUser(id: number): MaybeUser {
+  if (id &lt; 0) return null;
+  if (id === 0) return undefined;
+  return { id, name: 'User' };
+}</code></pre>
+                    </div>
+                    <button type="button"
+                            class="copy-button"
+                            aria-label="Copy code to clipboard"
+                            data-code-block="maybe">
+                        <svg class="copy-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true">
+                            <path d="M5.5 4.5H3.5C2.94772 4.5 2.5 4.94772 2.5 5.5V12.5C2.5 13.0523 2.94772 13.5 3.5 13.5H10.5C11.0523 13.5 11.5 13.0523 11.5 12.5V10.5" stroke-width="1.5" stroke-linecap="round"/>
+                            <rect x="5.5" y="2.5" width="8" height="8" rx="1" stroke-width="1.5"/>
+                        </svg>
+                        <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true">
+                            <path d="M3 8L6.5 11.5L13 5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="copy-text">Copy</span>
+                    </button>
+                </div>
+            </article>
+            <article class="snippet-card" id="nullable" itemscope itemtype="https://schema.org/HowTo">
+                <link itemprop="url" href="https://ownger.github.io/ts-snippets/#nullable">
+                <header class="snippet-header">
+                    <h3 class="snippet-title" itemprop="name">Nullable</h3>
+                    <p class="snippet-description" itemprop="description">
+                        Adds null to a type, allowing it to be null in addition to its original type.
+                    </p>
+                </header>
+
+                <div class="code-block-wrapper" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+                    <meta itemprop="name" content="Implementation">
+                    <div itemprop="itemListElement" itemscope itemtype="https://schema.org/HowToDirection">
+                        <pre><code class="language-typescript">type Nullable&lt;T&gt; = T | null;
+
+// Usage example
+type User = {
+  id: number;
+  name: string;
+};
+
+type NullableUser = Nullable&lt;User&gt;;
+// type NullableUser = User | null
+
+const user1: NullableUser = { id: 1, name: 'John' };
+const user2: NullableUser = null; // Valid</code></pre>
+                    </div>
+                    <button type="button"
+                            class="copy-button"
+                            aria-label="Copy code to clipboard"
+                            data-code-block="nullable">
+                        <svg class="copy-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true">
+                            <path d="M5.5 4.5H3.5C2.94772 4.5 2.5 4.94772 2.5 5.5V12.5C2.5 13.0523 2.94772 13.5 3.5 13.5H10.5C11.0523 13.5 11.5 13.0523 11.5 12.5V10.5" stroke-width="1.5" stroke-linecap="round"/>
+                            <rect x="5.5" y="2.5" width="8" height="8" rx="1" stroke-width="1.5"/>
+                        </svg>
+                        <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true">
+                            <path d="M3 8L6.5 11.5L13 5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="copy-text">Copy</span>
+                    </button>
+                </div>
+            </article>
+            <article class="snippet-card" id="optional" itemscope itemtype="https://schema.org/HowTo">
+                <link itemprop="url" href="https://ownger.github.io/ts-snippets/#optional">
+                <header class="snippet-header">
+                    <h3 class="snippet-title" itemprop="name">Optional</h3>
+                    <p class="snippet-description" itemprop="description">
+                        Adds undefined to a type, allowing it to be undefined in addition to its original type.
+                    </p>
+                </header>
+
+                <div class="code-block-wrapper" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+                    <meta itemprop="name" content="Implementation">
+                    <div itemprop="itemListElement" itemscope itemtype="https://schema.org/HowToDirection">
+                        <pre><code class="language-typescript">type Optional&lt;T&gt; = T | undefined;
+
+// Usage example
+type UserId = number;
+
+type OptionalUserId = Optional&lt;UserId&gt;;
+// type OptionalUserId = number | undefined
+
+function getUserId(): OptionalUserId {
+  return Math.random() &gt; 0.5 ? 123 : undefined;
+}</code></pre>
+                    </div>
+                    <button type="button"
+                            class="copy-button"
+                            aria-label="Copy code to clipboard"
+                            data-code-block="optional">
+                        <svg class="copy-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true">
+                            <path d="M5.5 4.5H3.5C2.94772 4.5 2.5 4.94772 2.5 5.5V12.5C2.5 13.0523 2.94772 13.5 3.5 13.5H10.5C11.0523 13.5 11.5 13.0523 11.5 12.5V10.5" stroke-width="1.5" stroke-linecap="round"/>
+                            <rect x="5.5" y="2.5" width="8" height="8" rx="1" stroke-width="1.5"/>
+                        </svg>
+                        <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true">
+                            <path d="M3 8L6.5 11.5L13 5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="copy-text">Copy</span>
+                    </button>
+                </div>
+            </article>
+            <article class="snippet-card" id="prettify" itemscope itemtype="https://schema.org/HowTo">
+                <link itemprop="url" href="https://ownger.github.io/ts-snippets/#prettify">
+                <header class="snippet-header">
+                    <h3 class="snippet-title" itemprop="name">Prettify</h3>
+                    <p class="snippet-description" itemprop="description">
+                        Expands complex types to show their actual structure in IDE tooltips.
+                    </p>
+                </header>
+
+                <div class="code-block-wrapper" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+                    <meta itemprop="name" content="Implementation">
+                    <div itemprop="itemListElement" itemscope itemtype="https://schema.org/HowToDirection">
+                        <pre><code class="language-typescript">type Prettify&lt;T&gt; = {
+  [K in keyof T]: T[K];
+} &amp; {};
+
+// Usage example
+type User = { name: string } &amp; { age: number };
+// Hovering shows: { name: string } &amp; { age: number }
+
+type PrettyUser = Prettify&lt;User&gt;;
+// Hovering shows: { name: string; age: number }</code></pre>
+                    </div>
+                    <button type="button"
+                            class="copy-button"
+                            aria-label="Copy code to clipboard"
+                            data-code-block="prettify">
+                        <svg class="copy-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true">
+                            <path d="M5.5 4.5H3.5C2.94772 4.5 2.5 4.94772 2.5 5.5V12.5C2.5 13.0523 2.94772 13.5 3.5 13.5H10.5C11.0523 13.5 11.5 13.0523 11.5 12.5V10.5" stroke-width="1.5" stroke-linecap="round"/>
+                            <rect x="5.5" y="2.5" width="8" height="8" rx="1" stroke-width="1.5"/>
+                        </svg>
+                        <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true">
+                            <path d="M3 8L6.5 11.5L13 5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="copy-text">Copy</span>
+                    </button>
+                </div>
+            </article>
+            <article class="snippet-card" id="with-non-null" itemscope itemtype="https://schema.org/HowTo">
+                <link itemprop="url" href="https://ownger.github.io/ts-snippets/#with-non-null">
+                <header class="snippet-header">
+                    <h3 class="snippet-title" itemprop="name">WithNonNull</h3>
+                    <p class="snippet-description" itemprop="description">
+                        Makes specific properties of a type non-nullable, removing null and undefined from selected fields.
+                    </p>
+                </header>
+
+                <div class="code-block-wrapper" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+                    <meta itemprop="name" content="Implementation">
+                    <div itemprop="itemListElement" itemscope itemtype="https://schema.org/HowToDirection">
+                        <pre><code class="language-typescript">type WithNonNull&lt;T, K extends keyof T&gt; = T &amp; {
+  [P in K]: NonNullable&lt;T[P]&gt;
+};
+
+// Usage example
+interface User {
+  id: number;
+  name: string | null;
+  email: string | null;
+  avatar: string | undefined;
+}
+
+type UserWithEmail = WithNonNull&lt;User, 'email'&gt;;
+// email is now string (not string | null)
+
+type UserWithNameAndEmail = WithNonNull&lt;User, 'name' | 'email'&gt;;
+// name and email are now string (not string | null)</code></pre>
+                    </div>
+                    <button type="button"
+                            class="copy-button"
+                            aria-label="Copy code to clipboard"
+                            data-code-block="with-non-null">
+                        <svg class="copy-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true">
+                            <path d="M5.5 4.5H3.5C2.94772 4.5 2.5 4.94772 2.5 5.5V12.5C2.5 13.0523 2.94772 13.5 3.5 13.5H10.5C11.0523 13.5 11.5 13.0523 11.5 12.5V10.5" stroke-width="1.5" stroke-linecap="round"/>
+                            <rect x="5.5" y="2.5" width="8" height="8" rx="1" stroke-width="1.5"/>
+                        </svg>
+                        <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true">
+                            <path d="M3 8L6.5 11.5L13 5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="copy-text">Copy</span>
+                    </button>
+                </div>
+            </article>
+        </section>
+    </div>
+</main>
+
+<footer class="site-footer" itemscope itemtype="https://schema.org/WPFooter">
+    <div class="container">
+        <p>
+            Made with <span itemprop="programmingLanguage">TypeScript</span> •
+            <a href="https://github.com/ownger/ts-snippets"
+               target="_blank"
+               rel="noopener noreferrer"
+               itemprop="url">
+                View on GitHub
+            </a>
+            •
+            <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <meta itemprop="name" content="ownger">
+                    <link itemprop="url" href="https://github.com/ownger">
+                </span>
+        </p>
+    </div>
+</footer>
+
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then(() => console.log('Service Worker registered'))
+                .catch(err => console.error('Service Worker registration failed:', err));
+        });
+    }
+</script>
+</body>
+</html>
