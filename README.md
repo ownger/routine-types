@@ -27,7 +27,7 @@ This project provides a comprehensive set of TypeScript utility types that exten
 
 ```bash
 git clone https://github.com/ownger/routine-types.git
-cd ts-snippets
+cd routine-types
 npm install
 npm run dev
 ```
