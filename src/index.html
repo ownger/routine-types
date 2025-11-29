@@ -9,6 +9,8 @@
     <meta name="keywords" content="typescript, utility types, code snippets, typescript examples, typescript helpers, ts utilities">
     <meta name="author" content="TypeScript Snippets">
 
+    <link rel="sitemap" type="application/xml" href="/routine-types/sitemap.xml">
+
     <meta property="og:type" content="website">
     <meta property="og:title" content="TypeScript Utility Snippets">
     <meta property="og:description" content="Collection of practical TypeScript utility types and code snippets for everyday development.">
@@ -379,7 +381,7 @@ type UserWithNameAndEmail = WithNonNull&lt;User, 'name' | 'email'&gt;;
     <div class="container">
         <p>
             Made with <span itemprop="programmingLanguage">TypeScript</span> •
-            <a href="https://github.com/ownger/routine-types"
+            <a href="https://github.com/ownger/ts-snippets"
                target="_blank"
                rel="noopener noreferrer"
                itemprop="url">
@@ -397,7 +399,7 @@ type UserWithNameAndEmail = WithNonNull&lt;User, 'name' | 'email'&gt;;
 <script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js')
+            navigator.serviceWorker.register('/routine-types/sw.js')
                 .then(() => console.log('Service Worker registered'))
                 .catch(err => console.error('Service Worker registration failed:', err));
         });
